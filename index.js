@@ -169,7 +169,7 @@ app.put("/users/:id", (req, res) => {
   const { id } = req.params;
   const updatedUser = req.body;
 
-  let user = user.find((user) => user.id == id);
+  let user = users.find((user) => user.id == id);
   if (user) {
     user.name = updatedUser.name;
     res.status(200).json(user);
@@ -181,7 +181,7 @@ app.put("/users/:id", (req, res) => {
 app.post("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
-  let user = user.find((user) => user.id == id);
+  let user = users.find((user) => user.id == id);
   if (user) {
     user.favoriteMovies.push(movieTitle);
     res.status(200).send(`${movieTitle} has been added to user ${id}'s array`);
@@ -194,7 +194,7 @@ app.post("/users/:id/:movieTitle", (req, res) => {
 app.delete("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
-  let user = user.find((user) => user.id == id);
+  let user = users.find((user) => user.id == id);
   if (user) {
     user.favoriteMovies = user.favoriteMovies.filter(
       (title) => title !== movieTitle
@@ -210,10 +210,11 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
 app.delete("/users/:id", (req, res) => {
   const { id } = req.params;
 
-  let user = user.find((user) => user.id == id);
+  let user = users.find((user) => user.id == id);
 
   if (user) {
     users = users.filter((user) => user.id != id);
+    // res.json(users);
     res.status(200).send(`user ${id} has been deleted`);
   } else {
     res.status(400).send("no such user");
