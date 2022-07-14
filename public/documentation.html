@@ -14,6 +14,189 @@
       information, and create and maintain their own lists of their favorite
       movies.
     </p>
+    <div>
+      <h2>Organizing Rest API movie data</h2>
+      <table>
+        <thead>
+          <tr style="height: 90px">
+            <th>Description</th>
+            <th>URL</th>
+            <th>HTTP Method</th>
+            <th>Request body data format</th>
+            <th>Response body data format</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="height: 90px">
+            <td>Return a list of all movies to the user</td>
+            <td>/movies</td>
+            <td>Get</td>
+            <td>none</td>
+            <td>A JSON object holding data about all movies</td>
+          </tr>
+          <tr style="height: 90px">
+            <td>Return data about a single movie by title to the user</td>
+            <td>/movies/:Title</td>
+            <td>Get</td>
+            <td>none</td>
+            <td>
+              A JSON object holding data, containing title, genre, description
+              and director's name and his bio, img url of a single movie by
+              title to the user
+              <pre>
+                <code>
+                  {
+	                  _id: '',
+	                  Title: '',
+	                  Description: '',
+	                  Genre: '',
+	                  Director: '',
+	                  imgUrl: ''
+                  }
+                </code>
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return data about a genre by name</td>
+            <td>/movies/genre/:genreName</td>
+            <td>Get</td>
+            <td>none</td>
+            <td>
+              A JSON object holding data about the genre:
+              <pre>
+                <code>
+                  {
+	                  Name: '',
+	                  Description: ''
+                  }
+                </code>
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return data about a director</td>
+            <td>/movies/directors/:directorsName</td>
+            <td>Get</td>
+            <td>none</td>
+            <td>
+              A JSON object holding data about the director:
+              <pre>
+                <code>
+                    {
+	                    Name: '',
+	                    Bio: ''
+                    }
+                </code>
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow new users to register</td>
+            <td>/users</td>
+            <td>Post</td>
+            <td>
+              A JSON object holding data about the users to add, structured
+              like:
+              <pre>
+                <code>
+                  {
+	                  Username: '',
+	                  FavoriteMovies: []
+                  }
+                </code>
+              </pre>
+            </td>
+            <td>
+              A JSON object holding data about the users added, inluding an ID:
+              <pre>
+                <code>
+                  {
+	                  id: '',
+										Username: '',
+	                  FavoriteMovies: []
+                  }
+                </code>
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow users to update their user info</td>
+            <td>/users/:Username</td>
+            <td>Put</td>
+            <td>
+              A JSON object holding data about user to be updated, structured
+              like:
+              <pre>
+                <code>
+                  {
+										Username: ''
+                  }
+                </code>
+              </pre>
+            </td>
+            <td>
+              A JSON object holding data about updated user, like:
+              <pre>
+                  <code>
+                    {
+											id: '',
+											Username: '',
+											FavoriteMovies: []
+                    }
+                  </code>
+              </pre>
+            </td>
+          </tr>
+          <tr style="height: 90px">
+            <td>Allow users to add a movie to list of favorites</td>
+            <td>/users/:Username/movies/:movieID</td>
+            <td>Post</td>
+            <td>none</td>
+            <td>
+              A JSON object holding data about updated user, like:
+              <pre>
+								<code>
+									{
+										id: '',
+										Username: '',
+										FavoriteMovies: []
+									}
+								</code>
+							</pre>
+            </td>
+          </tr>
+          <tr style="height: 90px">
+            <td>Allow users to remove a movie from list of favorites</td>
+            <td>/users/:username/movies/:movieID</td>
+            <td>Delete</td>
+            <td>none</td>
+            <td>
+              A JSON object holding data about updated user, like:
+              <pre>
+								<code>
+									{
+										id: '',
+										Username: '',
+										FavoriteMovies: []
+									}
+								</code>
+							</pre>
+            </td>
+          </tr>
+          <tr style="height: 90px">
+            <td>Allow exisiting users to deregister</td>
+            <td>/users/:Username</td>
+            <td>Delete</td>
+            <td>none</td>
+            <td>
+              A text message indicating whether the user was successfully
+              deregisted/deleted or not
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <script src="index.js"></script>
   </body>

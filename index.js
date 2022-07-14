@@ -153,7 +153,50 @@ let movies = [
   },
 ];
 
-//CREATE
+// A list of all movies
+app.get("/movies", (req, res) => {
+  res.status(200).json(movies);
+});
+
+//Return data about a single movie by title to the user
+app.get("/movies/:title", (req, res) => {
+  const { title } = req.params; // object destructuring
+  const movie = movies.find((movie) => movie.Title === title);
+
+  if (movie) {
+    res.status(200).json(movie);
+  } else {
+    res.status(400).send("no such movie");
+  }
+});
+
+// Return data about a genre
+app.get("/movies/genre/:genreName", (req, res) => {
+  const { genreName } = req.params; // object destructuring
+  const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
+
+  if (genre) {
+    res.status(200).json(genre);
+  } else {
+    res.status(400).send("no such genre");
+  }
+});
+
+// Return data about a director
+app.get("/movies/directors/:directorName", (req, res) => {
+  const { directorName } = req.params; // object destructuring
+  const director = movies.find(
+    (movie) => movie.Director.Name === directorName
+  ).Director;
+
+  if (director) {
+    res.status(200).json(director);
+  } else {
+    res.status(400).send("no such director");
+  }
+});
+
+//Create new user/register
 app.post("/users", (req, res) => {
   const newUser = req.body;
   if (newUser.name) {
@@ -164,7 +207,8 @@ app.post("/users", (req, res) => {
     res.status(400).send("no such names");
   }
 });
-//UPDATE
+
+//Update user info/username
 app.put("/users/:id", (req, res) => {
   const { id } = req.params;
   const updatedUser = req.body;
@@ -177,7 +221,8 @@ app.put("/users/:id", (req, res) => {
     res.status(400).send("no such user");
   }
 });
-//CREATE
+
+//Add a movie to the list of favorites
 app.post("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
@@ -190,7 +235,7 @@ app.post("/users/:id/:movieTitle", (req, res) => {
   }
 });
 
-//DELETE
+//Remove a movie from the list of favorites
 app.delete("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
@@ -206,7 +251,8 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
     res.status(400).send("no such user");
   }
 });
-//DELETE
+
+//Delete/deregister existing user
 app.delete("/users/:id", (req, res) => {
   const { id } = req.params;
 
@@ -218,47 +264,6 @@ app.delete("/users/:id", (req, res) => {
     res.status(200).send(`user ${id} has been deleted`);
   } else {
     res.status(400).send("no such user");
-  }
-});
-// READ
-app.get("/movies", (req, res) => {
-  res.status(200).json(movies);
-});
-
-// MOVIE
-app.get("/movies/:title", (req, res) => {
-  const { title } = req.params; // object destructuring
-  const movies = movies.find((movie) => movie.Title === title);
-
-  if (movie) {
-    res.status(200).json(movies);
-  } else {
-    res.status(400).send("no such movie");
-  }
-});
-
-// GENRE
-app.get("/movies/genre/:genreName", (req, res) => {
-  const { genreName } = req.params; // object destructuring
-  const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
-
-  if (genre) {
-    res.status(200).json(genre);
-  } else {
-    res.status(400).send("no such genre");
-  }
-});
-// DIRECTOR
-app.get("/movies/directors/:directorName", (req, res) => {
-  const { directorName } = req.params; // object destructuring
-  const director = movies.find(
-    (movie) => movie.Director.Name === directorName
-  ).Director;
-
-  if (director) {
-    res.status(200).json(director);
-  } else {
-    res.status(400).send("no such director");
   }
 });
 
