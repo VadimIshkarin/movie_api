@@ -9,16 +9,19 @@ let users = [
   {
     id: 1,
     name: "Kim",
+    email: "kimrymn951@gmail.com",
     favoriteMovies: [],
   },
   {
     id: 2,
     name: "Joe",
+    email: "joerymn3811@gmail.com",
     favoriteMovies: ["The Matrix"],
   },
   {
     id: 3,
     name: "Peter",
+    email: "peterrymn481@gmail.com",
     favoriteMovies: ["The Dark Knight"],
   },
 ];
