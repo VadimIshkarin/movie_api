@@ -16,40 +16,28 @@ let users = [
     name: "Joe",
     favoriteMovies: ["The Matrix"],
   },
+  {
+    id: 3,
+    name: "Peter",
+    favoriteMovies: ["The Dark Knight"],
+  },
 ];
 
 let movies = [
   {
-    Title: "Equilibrium",
+    Title: "The Matrix Reloaded",
     Description:
-      "The film follows John Preston, an enforcement officer in a future in which feelings and artistic expression are outlawed and citizens take daily injections of powerful psychoactive drugs to suppress their emotions. After accidentally missing a dose, Preston begins to experience emotions, which makes him question his morality and moderate his actions while attempting to remain undetected by the suspicious society in which he lives. Ultimately, he aids a resistance movement using advanced martial arts, which he was taught by the regime he is helping to overthrow.",
+      "It depicts a dystopian future in which humanity is unknowingly trapped inside a simulated reality, the Matrix, which intelligent machines have created to distract humans while using their bodies as an energy source. When computer programmer Thomas Anderson, under the hacker alias Neo, uncovers the truth, he joins a rebellion against the machines along with other people who have been freed from the Matrix.",
     Genre: {
       Name: "Science fiction action film",
       Description:
-        "Science fiction action films emphasize gun-play, space battles, invented weaponry, and elements weaved into action film premises.",
+        "Science fiction action film is a genre that uses speculative, fictional science-based depictions of phenomena that are not fully accepted by mainstream science, such as extraterrestrial lifeforms, spacecraft, robots, cyborgs, interstellar travel or other technologies. The genre tends to feature a mostly resourceful hero struggling against incredible odds, which include life-threatening situations, a dangerous villain, or a pursuit which usually concludes in victory for the hero.",
     },
     Director: {
-      Name: "Kurt Wimmer",
-      Bio: "Kurt Wimmer (born 1964) is an American screenwriter, film producer and film director. He attended the University of South Florida and graduated with a BFA degree in Art History. He then moved to Los Angeles, where he worked for 12 years as a screenwriter before directing the 2002 film Equilibrium",
+      Name: "Lana and Lilly Wachowski",
+      Bio: "Lana Wachowski (born June 21, 1965, formerly known as Larry Wachowski and Lilly Wachowski (born December 29, 1967, formerly known as Andy Wachowski) are American film and television directors, writers and producers.The sisters are both trans women.Collectively known as the Wachowskis, the sisters have worked as a writing and directing team through most of their careers.",
     },
-    ImageURL: "https://www.hbo.com/movies/equilibrium",
-    Featured: false,
-  },
-  {
-    Title: "Alien",
-    Description:
-      "Alien is a 1979 science fiction horror film directed by Ridley Scott and written by Dan O'Bannon. Based on a story by O'Bannon and Ronald Shusett, it follows the crew of the commercial space tug Nostromo, who, after coming across a mysterious derelict spaceship on an undiscovered moon, find themselves up against an aggressive and deadly extraterrestrial set loose on the Nostromo.",
-    Genre: {
-      Name: "Science fiction horror film",
-      Description:
-        "Science fiction horror film is a genre that uses speculative, fictional science-based depictions of phenomena that are not fully accepted by mainstream science, such as extraterrestrial lifeforms, spacecraft, robots, cyborgs, interstellar travel or other technologies and seeks to elicit fear or disgust in its audience for entertainment purposes.",
-    },
-    Director: {
-      Name: "Ridley Scott",
-      Bio: "Ridley Scott (born 30 November 1937 in South Shields, County Durham) is an English film director and producer.",
-    },
-    ImageURL:
-      "https://www.hulu.com/movie/alien-27389b6b-bf27-45a6-afdf-cef0fe723cff",
+    ImageURL: "https://www.imdb.com/title/tt0234215/",
     Featured: false,
   },
   {
@@ -85,6 +73,24 @@ let movies = [
       "https://www.hulu.com/movie/predator-784d3d44-0cf3-429c-a372-bbf8ecbedba7",
     Featured: false,
   },
+  {
+    Title: "Alien",
+    Description:
+      "Alien is a 1979 science fiction horror film directed by Ridley Scott and written by Dan O'Bannon. Based on a story by O'Bannon and Ronald Shusett, it follows the crew of the commercial space tug Nostromo, who, after coming across a mysterious derelict spaceship on an undiscovered moon, find themselves up against an aggressive and deadly extraterrestrial set loose on the Nostromo.",
+    Genre: {
+      Name: "Science fiction horror film",
+      Description:
+        "Science fiction horror film is a genre that uses speculative, fictional science-based depictions of phenomena that are not fully accepted by mainstream science, such as extraterrestrial lifeforms, spacecraft, robots, cyborgs, interstellar travel or other technologies and seeks to elicit fear or disgust in its audience for entertainment purposes.",
+    },
+    Director: {
+      Name: "Ridley Scott",
+      Bio: "Ridley Scott (born 30 November 1937 in South Shields, County Durham) is an English film director and producer.",
+    },
+    ImageURL:
+      "https://www.hulu.com/movie/alien-27389b6b-bf27-45a6-afdf-cef0fe723cff",
+    Featured: false,
+  },
+
   {
     Title: "The Dark Knight",
     Description:
@@ -149,6 +155,38 @@ let movies = [
     },
     ImageURL:
       "https://www.hulu.com/movie/the-abyss-733df76b-d280-4f96-b13e-3b0c0c345dee",
+    Featured: false,
+  },
+  {
+    Title: "The Hangover",
+    Description:
+      "It tells the story of Phil Wenneck, Stu Price, Alan Garner, and Doug Billings, who travel to Las Vegas for a bachelor party to celebrate Doug's impending marriage. However, Phil, Stu, and Alan wake up with Doug missing and no memory of the previous night's events, and must find the groom before the wedding can take place.",
+    Genre: {
+      Name: "Comedy film",
+      Description:
+        "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement.",
+    },
+    Director: {
+      Name: "Todd Phillips",
+      Bio: "Todd Phillips (born December 20, 1970 in Brooklyn, New York City) is an American filmmaker and occasional actor. He attended New York University Film School, but dropped out because he could not afford to complete his first film and pay tuition simultaneously.Around that time, he worked at Kim's Video and Music.",
+    },
+    ImageURL: "https://www.imdb.com/title/tt1119646/",
+    Featured: false,
+  },
+  {
+    Title: "The Hangover Part 2",
+    Description:
+      "It tells the story of Phil, Stu, Alan, and Doug as they travel to Thailand for Stu's wedding. After the bachelor party in Las Vegas, Stu takes no chances and opts for a safe, subdued pre-wedding brunch. Things do not go as planned, resulting in another bad hangover with no memories of the previous night.",
+    Genre: {
+      Name: "Comedy film",
+      Description:
+        "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement.",
+    },
+    Director: {
+      Name: "Todd Phillips",
+      Bio: "Todd Phillips (born December 20, 1970 in Brooklyn, New York City) is an American filmmaker and occasional actor. He attended New York University Film School, but dropped out because he could not afford to complete his first film and pay tuition simultaneously.Around that time, he worked at Kim's Video and Music.",
+    },
+    ImageURL: "https://www.imdb.com/title/tt1411697/",
     Featured: false,
   },
 ];
