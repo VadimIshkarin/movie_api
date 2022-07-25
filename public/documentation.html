@@ -38,10 +38,9 @@
             <td>Return data about a single movie by title to the user</td>
             <td>/movies/:Title</td>
             <td>Get</td>
-            <td>none</td>
             <td>
               A JSON object holding data, containing title, genre, description
-              and director's name and his bio, img url of a single movie by
+              and director's name and his bio, imagegpath of a single movie by
               title to the user
               <pre>
                 <code>
@@ -51,7 +50,9 @@
 	                  Description: '',
 	                  Genre: '',
 	                  Director: '',
+                    Bio: '',
 	                  imgUrl: ''
+                    Featured:''
                   }
                 </code>
               </pre>
@@ -61,7 +62,6 @@
             <td>Return data about a genre by name</td>
             <td>/movies/genre/:genreName</td>
             <td>Get</td>
-            <td>none</td>
             <td>
               A JSON object holding data about the genre:
               <pre>
@@ -78,14 +78,15 @@
             <td>Return data about a director</td>
             <td>/movies/directors/:directorsName</td>
             <td>Get</td>
-            <td>none</td>
             <td>
               A JSON object holding data about the director:
               <pre>
                 <code>
                     {
-	                    Name: '',
-	                    Bio: ''
+	                    _id: '',
+                      Name: '',
+	                    Bio: '',
+                      Birthday: ''
                     }
                 </code>
               </pre>
@@ -101,7 +102,10 @@
               <pre>
                 <code>
                   {
-	                  Username: '',
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
 	                  FavoriteMovies: []
                   }
                 </code>
@@ -112,8 +116,11 @@
               <pre>
                 <code>
                   {
-	                  id: '',
-										Username: '',
+	                  _id: '',
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
 	                  FavoriteMovies: []
                   }
                 </code>
@@ -130,7 +137,11 @@
               <pre>
                 <code>
                   {
-										Username: ''
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
+	                  
                   }
                 </code>
               </pre>
@@ -140,9 +151,12 @@
               <pre>
                   <code>
                     {
-											id: '',
-											Username: '',
-											FavoriteMovies: []
+											_id: '',
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
+	                  FavoriteMovies: []
                     }
                   </code>
               </pre>
@@ -152,15 +166,17 @@
             <td>Allow users to add a movie to list of favorites</td>
             <td>/users/:Username/movies/:movieID</td>
             <td>Post</td>
-            <td>none</td>
             <td>
               A JSON object holding data about updated user, like:
               <pre>
 								<code>
 									{
-										id: '',
-										Username: '',
-										FavoriteMovies: []
+										_id: '',
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
+	                  FavoriteMovies: []
 									}
 								</code>
 							</pre>
@@ -170,15 +186,17 @@
             <td>Allow users to remove a movie from list of favorites</td>
             <td>/users/:username/movies/:movieID</td>
             <td>Delete</td>
-            <td>none</td>
             <td>
               A JSON object holding data about updated user, like:
               <pre>
 								<code>
 									{
-										id: '',
-										Username: '',
-										FavoriteMovies: []
+										_id: '',
+                    Username: '',
+                    Password: '',
+                    email: '',
+                    Birthday: '',
+	                  FavoriteMovies: []
 									}
 								</code>
 							</pre>
@@ -188,7 +206,6 @@
             <td>Allow exisiting users to deregister</td>
             <td>/users/:Username</td>
             <td>Delete</td>
-            <td>none</td>
             <td>
               A text message indicating whether the user was successfully
               deregisted/deleted or not
@@ -198,6 +215,6 @@
       </table>
     </div>
 
-    <script src="index.js"></script>
+    <!-- <script src="public/index.js"></script> -->
   </body>
 </html>
