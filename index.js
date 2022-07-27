@@ -12,7 +12,14 @@ const Users = Models.User;
 const Genres = Models.Genre;
 const Directors = Models.Director;
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// Importing auth.js file into my project
+let auth = require("./auth")(app);
+
+//Importing passport.js file
+const passport = require("passport");
+require("./passport");
+
 mongoose.connect("mongodb://localhost:27017/myFlixDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -72,28 +79,31 @@ app.get("/movies/:Title", (req, res) => {
     });
 });
 
+//_______________________________________________
 //Get genre info when looking for specific genre
-app.get("/movies/genre/:name", (req, res) => {
-  Movies.find({ "Genre.Name": req.params.name })
-    .then((genre) => {
-      res.status(201).json(genre);
+app.get("/movies/genre/:Name", (req, res) => {
+  Movies.findOne({ "Genre.Name": req.params.Name })
+    .then((movie) => {
+      res.status(201).json(movie.Genre);
     })
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error: " + err);
     });
 });
+
 //Get director info when looking for specific director
 app.get("/movies/director/:Name", (req, res) => {
-  Movies.find({ "Director.Name": req.params.Name })
-    .then((director) => {
-      res.json(director);
+  Movies.findOne({ "Director.Name": req.params.Name })
+    .then((movie) => {
+      res.status(201).json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error: " + err);
     });
 });
+//_______________________________________________________
 
 //Add movie to username's list
 app.post("/users/:Username/movies/:MovieID", (req, res) => {
