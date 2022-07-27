@@ -1,6 +1,10 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
   uuid = require("uuid");
+//Using CORS
+const cors = require("cors");
+//A list of allowed domains within the variable allowedOrigins
+let allowedOrigins = ["http://localhost:8080", "http://testsite.com"];
 
 const morgan = require("morgan");
 const app = express();
@@ -15,8 +19,25 @@ mongoose.connect("mongodb://localhost:27017/myFlixDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 app.use(bodyParser.json());
+
+//it will set the application to allow requests from certain origins
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        // If a specific origin isn’t found on the list of allowed origins
+        let message =
+          "The CORS policy for this application doesn’t allow access from origin " +
+          origin;
+        return callback(new Error(message), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
+
 // Importing auth.js file into my project
 let auth = require("./auth")(app);
 
