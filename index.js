@@ -29,6 +29,8 @@ mongoose.connect(process.env.CONNECTION_URI, {
 });
 
 app.use(bodyParser.json());
+//Serving static documentation file located in public folder
+app.use("/", express.static("public"));
 
 //It will set the application to allow requests from certain origins
 // app.use(
@@ -320,13 +322,6 @@ app.delete(
     );
   }
 );
-//Access documentation .html using express.static
-// app.use("/documentation", express.static("public"));
-//error handling
-app.use((err, req, next) => {
-  console.error(err.stack);
-  res.status(500).send("Error");
-});
 
 // Listen for requests
 // app.listen(8080, () => {
