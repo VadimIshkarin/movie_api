@@ -3,12 +3,12 @@ const express = require("express"),
   uuid = require("uuid");
 //Using CORS
 const cors = require("cors");
-app.use(cors());
+// app.use(cors());
 
 const { check, validationResult } = require("express-validator");
 
 //A list of allowed domains within the variable allowedOrigins
-// let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
 // app.use(
 //   cors({
 //     origin: (origin, callback) => {
