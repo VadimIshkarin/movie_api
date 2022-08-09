@@ -1,14 +1,14 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
   uuid = require("uuid");
-//Using CORS
-const cors = require("cors");
-app.use(cors());
 
 const { check, validationResult } = require("express-validator");
 
+//Using CORS
+const cors = require("cors");
+// app.use(cors());
 //A list of allowed domains within the variable allowedOrigins
-// let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
 
 const morgan = require("morgan");
 const app = express();
@@ -33,21 +33,21 @@ app.use(bodyParser.json());
 app.use("/", express.static("public"));
 
 //It will set the application to allow requests from certain origins
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       if (!origin) return callback(null, true);
-//       if (allowedOrigins.indexOf(origin) === -1) {
-//         // If a specific origin isn’t found on the list of allowed origins
-//         let message =
-//           "The CORS policy for this application doesn’t allow access from origin " +
-//           origin;
-//         return callback(new Error(message), false);
-//       }
-//       return callback(null, true);
-//     },
-//   })
-// );
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        // If a specific origin isn’t found on the list of allowed origins
+        let message =
+          "The CORS policy for this application doesn't allow access from origin " +
+          origin;
+        return callback(new Error(message), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 
 // Importing auth.js file into my project
 let auth = require("./auth")(app);
