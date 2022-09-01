@@ -126,7 +126,7 @@ app.put(
       "Username contains non alphanumeric characters - not allowed."
     ).isAlphanumeric(),
     check("Password", "Password is required").not().isEmpty(),
-    check("Email", "Email does not appear to be valid").isEmail(),
+    // check("Email", "Email does not appear to be valid").isEmail(),
     // check("Birthday", "Birthday needs to be a valid date").isDate({
     //   format: "DD-MM-YYYY",
     // }),
@@ -139,13 +139,19 @@ app.put(
       return res.status(422).json({ errors: errors.array() });
     }
 
+    let hashedPassword = req.body.Password
+      ? Users.hashPassword(req.body.Password)
+      : null;
+    //if submitting password update it gets hashed
+
     // let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOneAndUpdate(
       { Username: req.params.Username },
       {
         $set: {
           Username: req.body.Username,
-          Password: req.body.Password,
+          // Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday,
         },
@@ -247,7 +253,6 @@ app.get(
   }
 );
 
-//_______________________________________________
 //Get genre info when looking for specific genre
 app.get(
   "/movies/genre/:Name",
@@ -279,7 +284,6 @@ app.get(
       });
   }
 );
-//_______________________________________________________
 
 //Add favorite movie to username's list
 app.post(
