@@ -8,7 +8,12 @@ const { check, validationResult } = require("express-validator");
 const cors = require("cors");
 // app.use(cors());
 //A list of allowed domains within the variable allowedOrigins
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
+let allowedOrigins = [
+  "http://localhost:8080",
+  "http://testsite.com",
+  "http://localhost:1234",
+  "https://myflixdb-movieapi-shelf.netlify.app",
+];
 
 const morgan = require("morgan");
 const app = express();
