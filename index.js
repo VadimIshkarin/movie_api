@@ -12,7 +12,7 @@ let allowedOrigins = [
   "http://localhost:8080",
   "http://testsite.com",
   "http://localhost:1234",
-  "https://myflixdb-movieapi-shelf.netlify.app",
+  "myflix-client-54gsbvbc2-vadimishkarin.vercel.app",
 ];
 
 const morgan = require("morgan");
