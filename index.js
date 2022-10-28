@@ -4,7 +4,7 @@ const express = require("express"),
 
 const { check, validationResult } = require("express-validator");
 
-//Using CORS
+//Using CORS (added vercel.app)
 const cors = require("cors");
 // app.use(cors());
 //A list of allowed domains within the variable allowedOrigins
