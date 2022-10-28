@@ -13,6 +13,7 @@ let allowedOrigins = [
   "http://testsite.com",
   "http://localhost:1234",
   "http://myflix-client-oz9lm3sr5-vadimishkarin.vercel.app",
+  "https://myflix-client.vercel.app",
 ];
 
 const morgan = require("morgan");
