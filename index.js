@@ -12,7 +12,7 @@ let allowedOrigins = [
   "http://localhost:8080",
   "http://testsite.com",
   "http://localhost:1234",
-  "http://myflix-client-oz9lm3sr5-vadimishkarin.vercel.app",
+  "http://localhost:4200",
   "https://myflix-client.vercel.app",
 ];
 
