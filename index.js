@@ -14,6 +14,7 @@ let allowedOrigins = [
   "http://localhost:1234",
   "http://localhost:4200",
   "https://myflix-client.vercel.app",
+  "https://vadimishkarin.github.io/myFlix-Angular-client/",
 ];
 
 const morgan = require("morgan");
