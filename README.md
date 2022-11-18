@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a backend API to store information about movies. It provides users with access to information about different movies, directors, genres and synopsis. Users will be able to sign up, update their personal information, and create a list of their favorite movies.
+This backend API stores information about movies. It provides users with access to information about different movies, directors, genres and synopsis. Users will be able to sign up, update their personal information, and create a list of their favorite movies.
 
 ## Key features:
 
@@ -33,7 +33,7 @@ This is a backend API to store information about movies. It provides users with 
 - uuid: "^8.3.2"
 - nodemon: "^2.0.19"
 
-  ## Links to a client-side of movie database apps which fetches data from its server-side "movie-api":
+## Links to a client-side of movie database apps which fetches data from its server-side "movie-api":
 
 - myFlix-client:
   https://github.com/VadimIshkarin/myFlix-client#readme
