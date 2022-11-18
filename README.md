@@ -1,4 +1,4 @@
-# MOVIE_API
+# movie_api
 
 ## Description
 
@@ -19,23 +19,23 @@ This is a backend API to store information about movies. It provides users with 
 ## Dependencies:
 
 - Node.JS
-- "bcrypt": "^5.0.1",
-- "body-parser": "^1.20.0",
-- "cors": "^2.8.5",
-- "express": "^4.18.1",
-- "express-validator": "^6.14.2",
-- "jsonwebtoken": "^8.5.1",
-- "mongoose": "^6.4.6",
-- "morgan": "^1.10.0",
-- "passport": "^0.6.0",
-- "passport-jwt": "^4.0.0",
-- "passport-local": "^1.0.0",
-- "uuid": "^8.3.2"
-- "nodemon": "^2.0.19"
+- bcrypt: "^5.0.1",
+- body-parser: "^1.20.0",
+- cors: "^2.8.5",
+- express: "^4.18.1",
+- express-validator: "^6.14.2",
+- jsonwebtoken: "^8.5.1",
+- mongoose: "^6.4.6",
+- morgan: "^1.10.0",
+- passport: "^0.6.0",
+- passport-jwt: "^4.0.0",
+- passport-local: "^1.0.0",
+- uuid: "^8.3.2"
+- nodemon: "^2.0.19"
 
   ## Links to a client-side of movie database apps which fetches data from its server-side "movie-api":
 
-  - myFlix-client:
-    https://github.com/VadimIshkarin/myFlix-client#readme
-  - myFlix-Angular-client:
-    https://github.com/VadimIshkarin/myFlix-Angular-client#readme
+- myFlix-client:
+  https://github.com/VadimIshkarin/myFlix-client#readme
+- myFlix-Angular-client:
+  https://github.com/VadimIshkarin/myFlix-Angular-client#readme
