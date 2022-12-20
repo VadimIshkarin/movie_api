@@ -16,7 +16,7 @@ let allowedOrigins = [
   "https://myflix-client.vercel.app",
   "https://vadimishkarin.github.io/myFlix-Angular-client",
   "https://vadimishkarin.github.io",
-  "http://44.203.44.140",
+  "http://44.210.112.74",
 ];
 
 const morgan = require("morgan");
@@ -36,6 +36,12 @@ mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+// .then(() => {
+//   console.log('Connected to Mongo!');
+// })
+// .catch((err) => {
+//   console.error('Error connecting to Mongo', err);
+// });
 
 app.use(bodyParser.json());
 //Serving static documentation file located in public folder
