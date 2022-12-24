@@ -17,6 +17,7 @@ let allowedOrigins = [
   "https://vadimishkarin.github.io/myFlix-Angular-client",
   "https://vadimishkarin.github.io",
   "http://44.210.112.74",
+  "http://myflix-client-react-bucket.s3-website-us-east-1.amazonaws.com",
 ];
 
 const morgan = require("morgan");
@@ -32,7 +33,7 @@ const Directors = Models.Director;
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-mongoose.connect(process.env.CONNECTION_URI, {
+mongoose.connect("mongodb://vadim:vadim@34.230.42.168:27017/myFlixDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -346,7 +347,7 @@ app.delete(
 // app.listen(8080, () => {
 //   console.log("Your app is listening on port 8080.");
 // });
-const port = process.env.PORT || 8080;
+const port = 8081;
 app.listen(port, "0.0.0.0", () => {
   console.log("Listening on Port " + port);
 });
