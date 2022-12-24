@@ -33,7 +33,7 @@ const Directors = Models.Director;
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-mongoose.connect("mongodb://vadim:vadim@34.230.42.168:27017/myFlixDB", {
+mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -347,7 +347,7 @@ app.delete(
 // app.listen(8080, () => {
 //   console.log("Your app is listening on port 8080.");
 // });
-const port = 8081;
+const port = process.env.PORT || 8080;
 app.listen(port, "0.0.0.0", () => {
   console.log("Listening on Port " + port);
 });
