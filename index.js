@@ -16,8 +16,8 @@ let allowedOrigins = [
   "https://myflix-client.vercel.app",
   "https://vadimishkarin.github.io/myFlix-Angular-client",
   "https://vadimishkarin.github.io",
-  "http://54.145.167.151",
-  "http://myflix-client-react-bucket.s3-website-us-east-1.amazonaws.com",
+  "http://3.87.70.190",
+  "http://myflix-bucket-x.s3-website-us-east-1.amazonaws.com",
 ];
 
 const morgan = require("morgan");
