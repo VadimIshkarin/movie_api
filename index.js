@@ -16,7 +16,7 @@ let allowedOrigins = [
   "https://myflix-client.vercel.app",
   "https://vadimishkarin.github.io/myFlix-Angular-client",
   "https://vadimishkarin.github.io",
-  "http://3.87.70.190",
+  "http://34.236.249.155",
   "http://myflix-bucket-x.s3-website-us-east-1.amazonaws.com",
 ];
 
