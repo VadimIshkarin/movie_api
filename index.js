@@ -4,6 +4,25 @@ const express = require("express"),
 
 const { check, validationResult } = require("express-validator");
 
+//AWS SDK________________________________________
+const fs = require("fs");
+const fileUpload = require("express-fileupload");
+//import a version of the client class that exposes all the service’s commands as methods in a single import
+const { S3 } = require("@aws-sdk/client-s3");
+
+const {
+  S3Client,
+  ListObjectsV2Command,
+  PutObjectCommand,
+  GetObjectCommand,
+} = require("@aws-sdk/client-s3");
+
+const s3Client = new S3Client({
+  region: "us-east-1",
+  endpoint: "http://localhost:4566",
+  forcePathStyle: true,
+});
+
 //Using CORS (added vercel.app)
 const cors = require("cors");
 // app.use(cors());
@@ -268,6 +287,70 @@ app.get(
       });
   }
 );
+
+///AWS SDK ___________________________________________________________
+
+// Upload an object to a bucket
+app.post("/images", async (req, res) => {
+  const imagefile = req.files.image;
+  const fileName = req.files.image.name;
+  const tempPath = `${UPLOAD_TEMP_PATH}/${fileName}`;
+  imagefile.mv(tempPath, (err) => {
+    res.status(500);
+  });
+  const fileStream = fs.createReadStream(file);
+  // Set the parameters
+  const bucketParams = {
+    Bucket: "iam-bucket-v",
+    // Specify the name of the new object. For example, 'index.html'.
+    // To create a directory for the object, use '/'. For example, 'myApp/package.json'.
+    Key: fileName,
+    // Content of the new object.
+    Body: fileStream,
+  };
+  try {
+    const data = await s3Client.send(new PutObjectCommand(bucketParams));
+    console.log("Success", data);
+    return data;
+    // console.log(
+    //   "Successfully uploaded object: " +
+    //     bucketParams.Bucket +
+    //     "/" +
+    //     bucketParams.Key
+    // );
+  } catch (err) {
+    console.log("Error", err);
+  }
+});
+
+//List all objects in a bucket
+app.get("/images", (req, res) => {
+  listObjectsParams = {
+    Bucket: "iam-bucket-v",
+  };
+  s3Client
+    .send(new ListObjectsV2Command(listObjectsParams))
+    .then((listObjectsResponse) => {
+      res.send(listObjectsResponse);
+    });
+});
+
+//Retrieve an object from a bucket
+app.get("/images/:id", async (req, res) => {
+  const bucketParams = {
+    Bucket: "iam-bucket-v",
+    Key: req.params["id"],
+  };
+  try {
+    // Get the object from the Amazon S3 bucket. It is returned as a ReadableStream.
+    const data = await s3Client.send(new GetObjectCommand(bucketParams));
+    // Convert the ReadableStream to a string.
+    return await data.Body.transformToString();
+  } catch (err) {
+    console.log("Error", err);
+  }
+});
+///___________________________________________________________
 
 //Get genre info when looking for specific genre
 app.get(
