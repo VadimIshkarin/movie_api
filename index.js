@@ -17,11 +17,12 @@ const {
   GetObjectCommand,
 } = require("@aws-sdk/client-s3");
 
-const s3Client = new S3Client({
+const s3Config = {
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_ACCESS_SECRET,
   region: "us-east-1",
-  endpoint: "http://localhost:4566",
-  forcePathStyle: true,
-});
+};
+const s3Client = new S3Client(s3Config);
 
 //Using CORS (added vercel.app)
 const cors = require("cors");
