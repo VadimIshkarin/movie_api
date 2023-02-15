@@ -332,13 +332,15 @@ app.get("/images", (req, res) => {
 
 //Retrieve an object from a bucket
 app.get("/images/:id", async (req, res) => {
+  console.log(req.params["id"]);
   const bucketParams = {
     Bucket: "iam-bucket-v",
     Key: req.params["id"],
   };
   try {
     const data = await s3Client.send(new GetObjectCommand(bucketParams));
-    return await data.Body.transformToString();
+    res.send(await data.Body.transformToString());
+    // return await data.Body.transformToString();
   } catch (err) {
     console.log("Error", err);
   }
