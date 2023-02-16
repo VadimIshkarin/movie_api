@@ -64,6 +64,9 @@ mongoose.connect(process.env.CONNECTION_URI, {
 //   console.error('Error connecting to Mongo', err);
 // });
 
+app.use(fileUpload());
+UPLOAD_TEMP_PATH = "/tmp";
+
 app.use(bodyParser.json());
 //Serving static documentation file located in public folder
 app.use("/", express.static("public"));
@@ -293,13 +296,14 @@ app.get(
 
 // Upload an object to a bucket
 app.post("/images", async (req, res) => {
-  const imagefile = req.files.image;
-  const fileName = req.files.image.name;
+  console.log("req.files", req.files);
+  const imagefile = req.files.file;
+  const fileName = req.files.file.name;
   const tempPath = `${UPLOAD_TEMP_PATH}/${fileName}`;
   imagefile.mv(tempPath, (err) => {
     res.status(500);
   });
-  const fileStream = fs.createReadStream(file);
+  // const fileStream = fs.createReadStream(imagefile);
   // Set the parameters
   const bucketParams = {
     Bucket: "iam-bucket-v",
@@ -307,12 +311,12 @@ app.post("/images", async (req, res) => {
     // To create a directory for the object, use '/'. For example, 'myApp/package.json'.
     Key: fileName,
     // Content of the new object.
-    Body: fileStream,
+    Body: imagefile.data,
   };
   try {
     const data = await s3Client.send(new PutObjectCommand(bucketParams));
     console.log("Success", data);
-    return data;
+    res.send(data);
   } catch (err) {
     console.log("Error", err);
   }
